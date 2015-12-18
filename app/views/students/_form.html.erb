@@ -1,0 +1,15 @@
+
+
+<%= form_for(@student) do |f| %>
+   First Name:
+   <%= f.text_field :first_name %>
+   <br/>
+   Last Name:
+   <%= f.text_field :last_name %>
+   <br/>
+   Student_Id:
+   <%= f.text_field :stu_id %>
+   <br/>
+
+   <%= f.submit "Do magic" %>
+<% end %>   

@@ -1,0 +1,102 @@
+
+<html>
+<head>
+<style>
+
+div
+{
+   width: 900px;
+   padding: 50px;
+   border: 25px solid blue;
+   margin: 20px;
+ }
+
+img{
+  float:top-left;
+ }
+ 
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    
+    padding: 15px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-style:bold; 
+    background-color: #f2f2f2;
+    height: 50px;
+}
+
+
+h1
+{
+  color: green;
+  text-align:left;
+  font-family:"Monospace";
+  font-style:italic;
+ }
+</style> </head>
+
+<body>
+ 
+<img src="capp.jpg" width="105" height="116"/>
+<div>
+<%= link_to "New student",new_student_path %>
+<br/>
+<h1> Student's Database </h1>
+<table border=1>
+  <thead>
+  	<th>first_name</th>
+    <th>last_name</th>
+    <th>Stu_id</th>
+    <th>Edit</th>
+    <th>Delete</th>
+ </thead>
+   
+  <tbody>
+	  <% @students.each do |s| %>
+	    <tr>
+	      <td><%= s.first_name %></td>
+	      <td><%= s.last_name %></td>
+	      <td><%= s.stu_id %></td>
+	      <td><%= link_to "edit","/students/#{s.id}/edit" %></td>
+	      <td><%= link_to "delete",s,{method: :delete} %></td>
+	  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+</br>
+
+<%= link_to "New Staff",new_employee_path %>
+<h1> Staff's Database </h1>
+<table border=1>
+  <thead>
+  	<th>emp_name</th>
+    <th>emp_id</th>
+    <th>dept</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+   
+  <tbody>
+	  <% @employees.each do |i| %>
+	    <tr>
+	      <td><%= i.name %></td>
+	      <td><%= i.emp_id %></td>
+	      <td><%= i.department %></td>
+	      <td><%= link_to "edit","/employees/#{i.id}/edit" %></td>
+	      <td><%= link_to "delete",i,{method: :delete} %></td>
+	    </tr>
+	  <% end %>
+  </tbody>
+  </table>
+</div>
+</body>
+</html>

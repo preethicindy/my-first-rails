@@ -1,0 +1,15 @@
+
+
+<%= form_for(@employee) do |f| %>
+   Name:
+   <%= f.text_field :name %>
+   <br/>
+   Emp id:
+   <%= f.text_field :emp_id %>
+   <br/>
+   Dept:
+   <%= f.text_field :department %>
+   <br/>
+
+   <%= f.submit "Do magic" %>
+<% end %>   
